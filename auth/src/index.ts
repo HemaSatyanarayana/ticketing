@@ -20,11 +20,13 @@ app.use(errorHandler);
 const start = async () => {
   try {
     await mongoose.connect("mongodb://auth-mongo-srv:27017/");
+    console.log("connected to mongoDB....");
   } catch (e) {
     console.log(e);
   }
+  app.listen(3000, () => {
+    console.log("server running on 3000!!!!");
+  });
 };
 
-app.listen(3000, () => {
-  console.log("server running on 3000!!!!");
-});
+start();
